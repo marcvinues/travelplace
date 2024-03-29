@@ -1,3 +1,4 @@
 import React from "react";
+import { Layout } from "./containers/Layout";
 
-export const App = () => <h1> Hello world </h1>;
+export const App = () => <Layout />;
