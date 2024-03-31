@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
+  width: 800px;
   position: absolute;
   top: 120px;
   display: grid;
@@ -21,19 +22,23 @@ export const CardSection = styled.section`
 
 export const CardItem = styled.article`
   border: 1.5px solid rgb(229, 229, 229);
-  max-width: auto;
   border-radius: 24px;
+  display: flex;
   overflow: hidden;
-  height: 100%;
   margin-bottom: 2rem;
-  display: grid;
-  grid-auto-rows: min-content;
-  grid-template-columns: repeat(1, 1fr);
   width: 100%;
 `;
 
+export const CardImage = styled.img`
+  border-radius: 24px 0px 0px 24px;
+  width: 50%;
+  height: auto;
+  z-index: 5;
+  background-color: rgb(255, 255, 255);
+`;
+
 export const CardTitle = styled.h2`
-  display: flex;
+  /* display: flex;
   margin-top: 0px;
   margin-bottom: 24px;
   -webkit-box-pack: center;
@@ -41,35 +46,23 @@ export const CardTitle = styled.h2`
   -webkit-box-align: center;
   align-items: center;
   line-height: 1.5;
-  text-align: center;
-`;
-
-export const CardImage = styled.img`
-  height: 100%;
-  display: block;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 50%;
-  height: 100%;
-  z-index: 5;
-  background-color: rgb(255, 255, 255);
+  text-align: center; */
 `;
 
 export const CardDetails = styled.div`
-  position: absolute;
-  right: 0;
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  padding: 8px 12px;
 `;
 
 export const CardDetailTitleDescription = styled.span`
   font-size: 12px;
   color: grey;
 `;
-export const CardDetailTitle = styled.h2`
+export const CardDetailTitle = styled.h4`
   color: black;
+  line-height: 1;
+  font-size: 1.25rem;
+  font-weight: 100;
+  margin: 8px 0;
 `;
 
 export const CardContent = styled.div`
@@ -77,7 +70,65 @@ export const CardContent = styled.div`
   flex-direction: row;
 `;
 
-export const CardContentDetail = styled.p`
+export const CardContentDetail = styled.div`
   font-size: 12px;
-  padding: 24px 12px;
+  margin: 0;
+  > ul {
+    padding: 0;
+    > li {
+      list-style-type: none;
+      padding: 5px;
+    }
+  }
+`;
+
+export const CardContentPrices = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const CardPriceDiscount = styled.div`
+  border-radius: 25px;
+  text-align: center;
+  background: #f5f52a;
+  height: auto;
+  padding: 0.5em;
+  margin-bottom: 5px;
+`;
+
+export const CardPriceSubtitle = styled.p`
+  font-size: 12px;
+  color: lightgrey;
+  margin: 5px;
+`;
+
+export const CardPriceTotal = styled.p`
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  margin: 5px;
+`;
+
+export const CardButtonTrip = styled.button`
+  border-radius: 25px;
+  color: white;
+  background-color: black;
+  text-align: center;
+  border: none;
+  position: relative;
+  bottom: 0;
+  right: 0;
+  padding: 1.2em 0.9em;
+  left: 170%;
+`;
+export const CardContentAlias = styled.div`
+  position: relative;
+  bottom: 0;
+  display: flex;
+`;
+export const CardAlias = styled.div`
+  border: 1.5px solid rgb(229, 229, 229);
+  border-radius: 25px;
+  padding: 10px;
+  margin: 4px;
 `;

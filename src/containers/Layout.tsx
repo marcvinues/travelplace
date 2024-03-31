@@ -19,12 +19,19 @@ export const Layout = () => {
 
     getData();
   }, []);
-
+  //export outside
+  const divStyle = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  };
   if (loading) return <div>Loading...</div>;
   return (
     <>
-      <HeaderBar title="Exoticca" />;
-      <CardList data={data} />
+      <HeaderBar title="Exoticca" />
+      <div style={divStyle}>
+        <CardList data={data} />
+      </div>
     </>
   );
 };

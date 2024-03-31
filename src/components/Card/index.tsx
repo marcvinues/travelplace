@@ -10,6 +10,13 @@ import {
   CardDetailTitle,
   CardContent,
   CardContentDetail,
+  CardContentPrices,
+  CardPriceDiscount,
+  CardPriceSubtitle,
+  CardPriceTotal,
+  CardButtonTrip,
+  CardAlias,
+  CardContentAlias,
 } from "./styled";
 
 export const Card = ({
@@ -42,20 +49,49 @@ export const Card = ({
         <CardItem>
           <CardImage src={images[0].desktop} />
           <CardDetails>
-            <CardDetailTitleDescription>
-              South Africa, Zimbabwe & Botswana + days
-            </CardDetailTitleDescription>
-            <CardDetailTitle>
-              Cape, Kruger, Victoria Falls & Chobe N.P. (title)
-            </CardDetailTitle>
-            <CardContent>
-              <CardContentDetail>Chobe</CardContentDetail>
-              <CardContentDetail>
-                {Object.entries(includes).map(([key, value]) => (
-                  <span key={key}>{value}</span>
-                ))}
-              </CardContentDetail>
-            </CardContent>
+            <CardContentPrices>
+              <div>
+                <CardDetailTitleDescription>
+                  South Africa, Zimbabwe & Botswana + days
+                </CardDetailTitleDescription>
+                <CardDetailTitle>
+                  Cape, Kruger, Victoria Falls & Chobe N.P. (title)
+                </CardDetailTitle>
+                <CardContent>
+                  <CardContentDetail>
+                    <ul>
+                      {Object.entries(includes).map(([key, value]) => (
+                        <li key={key}>{value}</li>
+                      ))}
+                    </ul>
+                  </CardContentDetail>
+                  <CardContentDetail>
+                    <ul>
+                      {Object.entries(includes).map(([key, value]) => (
+                        <li key={key}>{value}</li>
+                      ))}
+                    </ul>
+                  </CardContentDetail>
+                </CardContent>
+                <CardContentAlias>
+                  <CardAlias>
+                    <CardContentDetail>group tours</CardContentDetail>
+                  </CardAlias>
+                  <CardAlias>
+                    <CardContentDetail>group tours</CardContentDetail>
+                  </CardAlias>
+                  <div>
+                    <CardButtonTrip>See trip</CardButtonTrip>
+                  </div>
+                </CardContentAlias>
+              </div>
+              <div>
+                <CardPriceDiscount> - 40%</CardPriceDiscount>
+                <CardPriceSubtitle> From $6349</CardPriceSubtitle>
+                <CardPriceTotal> $3799</CardPriceTotal>
+                <CardPriceSubtitle> Per night $210</CardPriceSubtitle>
+              </div>
+            </CardContentPrices>
           </CardDetails>
         </CardItem>
       </CardSection>
