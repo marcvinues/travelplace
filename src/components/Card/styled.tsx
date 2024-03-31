@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
-  width: 800px;
-  position: absolute;
+  width: 1024px;
+  position: relative;
   top: 120px;
   display: grid;
   grid-auto-rows: min-content;
@@ -15,7 +15,6 @@ export const CardContainer = styled.div`
 `;
 
 export const CardSection = styled.section`
-  padding: 52px 0px;
   max-width: inherit;
   grid-column: 2 / -2;
 `;
@@ -38,7 +37,7 @@ export const CardImage = styled.img`
 `;
 
 export const CardTitle = styled.h2`
-  /* display: flex;
+  display: flex;
   margin-top: 0px;
   margin-bottom: 24px;
   -webkit-box-pack: center;
@@ -46,7 +45,7 @@ export const CardTitle = styled.h2`
   -webkit-box-align: center;
   align-items: center;
   line-height: 1.5;
-  text-align: center; */
+  text-align: center;
 `;
 
 export const CardDetails = styled.div`
@@ -109,26 +108,31 @@ export const CardPriceTotal = styled.p`
   margin: 5px;
 `;
 
+export const CardContainerButton = styled.div`
+  position: absolute;
+  right: 0;
+  margin-right: 31px;
+`;
+
 export const CardButtonTrip = styled.button`
   border-radius: 25px;
   color: white;
   background-color: black;
-  text-align: center;
   border: none;
-  position: relative;
-  bottom: 0;
-  right: 0;
   padding: 1.2em 0.9em;
-  left: 170%;
 `;
+
 export const CardContentAlias = styled.div`
-  position: relative;
-  bottom: 0;
   display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  align-items: flex-end;
 `;
 export const CardAlias = styled.div`
   border: 1.5px solid rgb(229, 229, 229);
   border-radius: 25px;
-  padding: 10px;
+  padding: 0 10px;
   margin: 4px;
 `;

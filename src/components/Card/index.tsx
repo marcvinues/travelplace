@@ -17,10 +17,11 @@ import {
   CardButtonTrip,
   CardAlias,
   CardContentAlias,
+  CardContainerButton,
 } from "./styled";
 
 export const Card = ({
-  promoted,
+  headLine,
   images,
   tags,
   highlights,
@@ -28,7 +29,9 @@ export const Card = ({
   priceDetail,
   days,
   destination,
-  hasPrivateTour,
+  isFirst,
+  promotedText,
+  notPromoted,
 }) => {
   const includes = {
     ACCOMMODATION: "Accomodation",
@@ -38,31 +41,29 @@ export const Card = ({
     ACTIVITIES: "Activities",
   };
   // tags = alias
-  const promotedText =
-    "Our recommendation to visit Botswana and neighboring countries";
-  const notPromoted = "Multi country vacation packages including Botswana";
 
   return (
     <CardContainer>
       <CardSection>
-        {promoted ? <CardTitle>{promotedText}</CardTitle> : notPromoted}
+        {isFirst && (
+          <CardTitle>{headLine ? promotedText : notPromoted}</CardTitle>
+        )}
         <CardItem>
           <CardImage src={images[0].desktop} />
           <CardDetails>
             <CardContentPrices>
               <div>
                 <CardDetailTitleDescription>
-                  South Africa, Zimbabwe & Botswana + days
+                  {destination} in {days} days +
                 </CardDetailTitleDescription>
-                <CardDetailTitle>
-                  Cape, Kruger, Victoria Falls & Chobe N.P. (title)
-                </CardDetailTitle>
+                <CardDetailTitle>{title}</CardDetailTitle>
                 <CardContent>
                   <CardContentDetail>
                     <ul>
-                      {Object.entries(includes).map(([key, value]) => (
-                        <li key={key}>{value}</li>
-                      ))}
+                      {highlights &&
+                        highlights.map((value) => (
+                          <li key={value.title}>{value.title}</li>
+                        ))}
                     </ul>
                   </CardContentDetail>
                   <CardContentDetail>
@@ -74,22 +75,29 @@ export const Card = ({
                   </CardContentDetail>
                 </CardContent>
                 <CardContentAlias>
-                  <CardAlias>
-                    <CardContentDetail>group tours</CardContentDetail>
-                  </CardAlias>
-                  <CardAlias>
-                    <CardContentDetail>group tours</CardContentDetail>
-                  </CardAlias>
-                  <div>
+                  {tags.map((tag) => (
+                    <CardAlias key={tag.alias}>
+                      <CardContentDetail>{tag.name}</CardContentDetail>
+                    </CardAlias>
+                  ))}
+                  <CardContainerButton>
                     <CardButtonTrip>See trip</CardButtonTrip>
-                  </div>
+                  </CardContainerButton>
                 </CardContentAlias>
               </div>
               <div>
-                <CardPriceDiscount> - 40%</CardPriceDiscount>
-                <CardPriceSubtitle> From $6349</CardPriceSubtitle>
-                <CardPriceTotal> $3799</CardPriceTotal>
-                <CardPriceSubtitle> Per night $210</CardPriceSubtitle>
+                <CardPriceDiscount>
+                  -{priceDetail?.pricingPercentage}%
+                </CardPriceDiscount>
+                <CardPriceSubtitle>
+                  From {priceDetail?.oldPriceBeautify}
+                </CardPriceSubtitle>
+                <CardPriceTotal>
+                  {priceDetail?.fromPriceBeautify}
+                </CardPriceTotal>
+                <CardPriceSubtitle>
+                  Per night {priceDetail?.pricePerNight}
+                </CardPriceSubtitle>
               </div>
             </CardContentPrices>
           </CardDetails>
