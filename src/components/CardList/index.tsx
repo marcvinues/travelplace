@@ -1,12 +1,34 @@
 import React from "react";
 import { Card } from "../Card/";
 
-export const CardList = ({ hasHeadLine, hasNoHeadLine }) => {
+interface Trip {
+  headLine?: boolean;
+  images: { desktop: string }[];
+  tags: { alias: string; name: string }[];
+  highlights: { title: string }[];
+  title: string;
+  priceDetail: {
+    pricingPercentage?: number;
+    oldPriceBeautify?: string;
+    fromPriceBeautify?: string;
+    pricePerNight?: string;
+  };
+  days: number;
+  destination: string;
+  hasPrivateTour?: boolean;
+}
+
+interface CardListProps {
+  hasHeadLine: Trip[];
+  hasNoHeadLine: Trip[];
+}
+
+export const CardList = ({ hasHeadLine, hasNoHeadLine }: CardListProps) => {
   const promotedText =
     "Our recommendation to visit Botswana and neighboring countries";
   const notPromoted = "Multi country vacation packages including Botswana";
 
-  const renderTrips = (trips) => (
+  const renderTrips = (trips: Trip[]) => (
     <>
       {trips.map((t, index) => (
         <Card
@@ -19,7 +41,6 @@ export const CardList = ({ hasHeadLine, hasNoHeadLine }) => {
           priceDetail={t.priceDetail}
           days={t.days}
           destination={t.destination}
-          hasPrivateTour={t.hasPrivateTour}
           isFirst={index === 0}
           promotedText={promotedText}
           notPromoted={notPromoted}

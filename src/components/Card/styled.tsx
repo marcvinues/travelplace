@@ -8,9 +8,9 @@ export const CardContainer = styled.div`
   grid-auto-rows: min-content;
   column-gap: 16px;
   grid-template-columns: 0px 1fr 0px;
-  @media (min-width) {
-    column-gap: 64px;
-    grid-template-columns: 0px 1fr 0px;
+  @media (max-width: 375px) {
+    max-width: 375px;
+    padding: 10px;
   }
 `;
 
@@ -25,7 +25,9 @@ export const CardItem = styled.article`
   display: flex;
   overflow: hidden;
   margin-bottom: 2rem;
-  width: 100%;
+  @media (max-width: 375px) {
+    flex-direction: column;
+  }
 `;
 
 export const CardImage = styled.img`
@@ -34,6 +36,9 @@ export const CardImage = styled.img`
   height: auto;
   z-index: 5;
   background-color: rgb(255, 255, 255);
+  @media (max-width: 375px) {
+    width: 100%;
+  }
 `;
 
 export const CardTitle = styled.h2`
@@ -71,7 +76,8 @@ export const CardContent = styled.div`
 
 export const CardContentDetail = styled.div`
   font-size: 12px;
-  margin: 0;
+  margin: 0 15px 0 0;
+
   > ul {
     padding: 0;
     > li {

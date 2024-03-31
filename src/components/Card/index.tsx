@@ -20,6 +20,40 @@ import {
   CardContainerButton,
 } from "./styled";
 
+interface Tag {
+  alias: string;
+  name: string;
+}
+
+interface Highlight {
+  title: string;
+}
+
+interface Image {
+  desktop: string; // Ajusta según la estructura real de tus imágenes
+}
+
+interface PriceDetail {
+  pricingPercentage?: number;
+  oldPriceBeautify?: string;
+  fromPriceBeautify?: string;
+  pricePerNight?: string;
+}
+
+interface CardProps {
+  headLine?: boolean;
+  images: Image[];
+  tags: Tag[];
+  highlights: Highlight[];
+  title: string;
+  priceDetail: PriceDetail;
+  days: number;
+  destination: string;
+  isFirst?: boolean;
+  promotedText: string;
+  notPromoted: string;
+}
+
 export const Card = ({
   headLine,
   images,
@@ -32,7 +66,7 @@ export const Card = ({
   isFirst,
   promotedText,
   notPromoted,
-}) => {
+}: CardProps) => {
   const includes = {
     ACCOMMODATION: "Accomodation",
     ALL_FLIGHTS: "All Flights",
@@ -40,7 +74,6 @@ export const Card = ({
     SOME_MEALS: "Some Meals",
     ACTIVITIES: "Activities",
   };
-  // tags = alias
 
   return (
     <CardContainer>

@@ -1,4 +1,8 @@
 import React from "react";
 import { H1 } from "./styled";
 
-export const Title = ({ title }: string) => <H1>{title}</H1>;
+interface TitleProps {
+  title: string;
+}
+
+export const Title = ({ title }: TitleProps) => <H1>{title}</H1>;
