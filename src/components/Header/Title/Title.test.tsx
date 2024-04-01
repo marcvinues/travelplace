@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { Title } from "./Title";
+import { Title } from "./";
 
 test("renders the title component with text", () => {
   render(<Title title="Hello, world!" />);

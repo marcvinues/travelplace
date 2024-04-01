@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { CardList } from "./CardList";
+import { CardList } from "./";
 
 jest.mock("../Card", () => ({
   Card: ({ title }: { title: string }) => <div>{title}</div>,

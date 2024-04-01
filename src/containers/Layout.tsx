@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { HeaderBar } from "../components/Header";
 import { CardList } from "../components/CardList";
-import axios from "axios";
+import { axiosRetriveData } from "../utils/axios";
 interface Trip {
   headLine?: boolean;
   images: { desktop: string }[];
@@ -34,7 +34,7 @@ export const Layout = () => {
     const getData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("data.json");
+        const response = await axiosRetriveData.get("");
         const { featuredMultiMarket, multiMarket } = response.data.destinations;
         const hasHeadLine = featuredMultiMarket.filter((f) => f.headLine);
         const hasNoHeadLine = multiMarket.filter((f) => !f.headLine);
