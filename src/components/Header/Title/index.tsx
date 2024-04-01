@@ -6,7 +6,7 @@ interface TitleProps {
 }
 
 export const Title = ({ title }: TitleProps) => {
-  const [showSearch, setShowSearch] = useState(true);
+  const [showSearch, setShowSearch] = useState(false);
 
   // Manejar el evento de scroll
   useEffect(() => {
